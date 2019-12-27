@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Speech_Feature_Extraction" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ggnn.pytorch" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/openpose" vcs="Git" />
   </component>
 </project>
