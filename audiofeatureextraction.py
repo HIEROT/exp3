@@ -1,5 +1,7 @@
 import numpy
 import scipy.io.wavfile as wf
+import os
+import re
 
 
 def ExtractFromAudio(filepath,chipnum):
@@ -65,6 +67,13 @@ def ExtractFromAudio(filepath,chipnum):
 
 
 if __name__ == '__main__':
-    coeff = ExtractFromAudio('./dataset/train/positive/5/audio.wav',30)
-    print(numpy.shape(coeff))
-    numpy.save()
+    coefflist = []
+    indexlist = []
+    for r, d, f in os.walk('./dataset/train/negative'):
+        for name in f:
+            if re.match(r'audio.wav', name):
+                coeff = ExtractFromAudio(os.path.join(r, name), 30)
+                coefflist.append(coeff)
+                indexlist.append(int(os.path.split(r)[1]))
+    numpy.save('negcoeff.npy', coefflist)
+    numpy.save('neglist.npy', indexlist)
